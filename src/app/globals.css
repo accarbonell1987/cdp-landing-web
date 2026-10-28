@@ -121,55 +121,39 @@ h3 {
     line-height: 1.04;
   }
 
-  /* Red rule + uppercase label above section headings. */
+  /* Uppercase label above section headings. */
   .kicker {
-    display: flex;
-    align-items: center;
-    gap: 10px;
     font-size: 15px;
     font-weight: 700;
     letter-spacing: 0.06em;
     text-transform: uppercase;
     color: var(--red);
   }
-  .kicker::before {
-    content: "";
-    width: 24px;
-    height: 3px;
-    background: currentColor;
-  }
 
-  /* Tread patterns for the tire family cards (decorative). */
-  .tread {
-    height: 120px;
-    border-radius: 16px 16px 0 0;
-    background-color: #16233a;
+  /* Soft card: generous radius, a low warm shadow and a small lift on hover. */
+  .card-soft {
+    border-radius: 24px;
+    background: var(--white);
+    box-shadow:
+      0 1px 2px rgba(11, 42, 91, 0.05),
+      0 12px 32px -12px rgba(11, 42, 91, 0.14);
+    transition:
+      box-shadow 0.3s ease,
+      translate 0.3s ease;
   }
-  .tread-rib {
-    background-image:
-      repeating-linear-gradient(90deg, transparent 0 22px, #2c3e60 22px 26px),
-      repeating-linear-gradient(0deg, transparent 0 18px, #24365a 18px 21px);
+  .card-soft-media {
+    transition: scale 0.6s ease;
   }
-  .tread-allTerrain {
-    background-image:
-      repeating-linear-gradient(120deg, transparent 0 16px, #2c3e60 16px 26px),
-      repeating-linear-gradient(60deg, transparent 0 16px, #24365a 16px 22px);
-  }
-  .tread-cargo {
-    background-image: repeating-linear-gradient(90deg, transparent 0 30px, #2c3e60 30px 40px);
-  }
-  .tread-truck {
-    background-image:
-      repeating-linear-gradient(90deg, #2c3e60 0 14px, transparent 14px 34px),
-      repeating-linear-gradient(0deg, transparent 0 26px, #16233a 26px 30px);
-  }
-  .tread-agro {
-    background-image:
-      repeating-linear-gradient(135deg, transparent 0 22px, #2c3e60 22px 40px),
-      repeating-linear-gradient(45deg, transparent 0 22px, #2c3e60 22px 40px);
-    background-size: 100% 50%;
-    background-repeat: no-repeat;
-    background-position: top, bottom;
+  @media (hover: hover) {
+    .card-soft:hover {
+      translate: 0 -4px;
+      box-shadow:
+        0 2px 4px rgba(11, 42, 91, 0.06),
+        0 20px 40px -14px rgba(11, 42, 91, 0.22);
+    }
+    .card-soft:hover .card-soft-media {
+      scale: 1.04;
+    }
   }
 
   /* Scroll reveal (see components/reveal.tsx). Only hidden once JS arms it. */
