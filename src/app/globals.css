@@ -139,6 +139,39 @@ h3 {
     background: currentColor;
   }
 
+  /* Tread patterns for the tire family cards (decorative). */
+  .tread {
+    height: 120px;
+    border-radius: 16px 16px 0 0;
+    background-color: #16233a;
+  }
+  .tread-rib {
+    background-image:
+      repeating-linear-gradient(90deg, transparent 0 22px, #2c3e60 22px 26px),
+      repeating-linear-gradient(0deg, transparent 0 18px, #24365a 18px 21px);
+  }
+  .tread-allTerrain {
+    background-image:
+      repeating-linear-gradient(120deg, transparent 0 16px, #2c3e60 16px 26px),
+      repeating-linear-gradient(60deg, transparent 0 16px, #24365a 16px 22px);
+  }
+  .tread-cargo {
+    background-image: repeating-linear-gradient(90deg, transparent 0 30px, #2c3e60 30px 40px);
+  }
+  .tread-truck {
+    background-image:
+      repeating-linear-gradient(90deg, #2c3e60 0 14px, transparent 14px 34px),
+      repeating-linear-gradient(0deg, transparent 0 26px, #16233a 26px 30px);
+  }
+  .tread-agro {
+    background-image:
+      repeating-linear-gradient(135deg, transparent 0 22px, #2c3e60 22px 40px),
+      repeating-linear-gradient(45deg, transparent 0 22px, #2c3e60 22px 40px);
+    background-size: 100% 50%;
+    background-repeat: no-repeat;
+    background-position: top, bottom;
+  }
+
   .skip-link {
     position: absolute;
     left: 16px;

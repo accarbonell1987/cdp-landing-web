@@ -16,7 +16,7 @@ Plan por fases: ver el documento "Web CDP: plan por fases".
 src/
 ├── app/            # layout (SEO, JSON-LD), página, robots, sitemap, iconos, imagen OG
 ├── components/     # una pieza por sección; ui/ = componentes shadcn
-├── data/site.ts    # ← EDITAR AQUÍ: datos de la empresa, contacto, navegación
+├── data/           # ← EDITAR AQUÍ: site.ts (empresa, contacto, menú), company.ts (secciones), tires.ts (gama y código)
 ├── assets/media/   # renders del proyecto (importados, Next genera AVIF/WebP)
 └── lib/utils.ts    # cn()
 public/

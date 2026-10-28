@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Link from "next/link";
+import { MobileMenu } from "@/components/mobile-menu";
 import { Button } from "@/components/ui/button";
 import { nav } from "@/data/site";
 
@@ -12,7 +13,7 @@ export function SiteHeader() {
         <span className="flex-1 bg-white" />
         <span className="flex-1 bg-navy" />
       </div>
-      <header className="border-b border-line bg-white">
+      <header className="relative border-b border-line bg-white">
         <div className="wrap flex items-center justify-between gap-6 py-3.5">
           <Link href="/" aria-label="Cauchos del Paraguay, inicio" className="block">
             <Image
@@ -24,7 +25,7 @@ export function SiteHeader() {
               className="h-[52px] w-auto"
             />
           </Link>
-          <nav aria-label="Principal" className="flex items-center gap-7">
+          <nav aria-label="Principal" className="flex items-center gap-3 lg:gap-7">
             <ul className="hidden gap-[26px] text-[16px] font-semibold lg:flex">
               {nav.map((item) => (
                 <li key={item.href}>
@@ -40,6 +41,7 @@ export function SiteHeader() {
             <Button asChild size="sm">
               <a href="#contacto">Contacto</a>
             </Button>
+            <MobileMenu />
           </nav>
         </div>
       </header>
