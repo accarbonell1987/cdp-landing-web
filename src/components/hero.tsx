@@ -9,6 +9,7 @@ export function Hero() {
         src={fachada}
         alt="Visualización de la planta de Cauchos del Paraguay de día, con la nave, el logotipo y el bloque de oficinas"
         preload
+        fetchPriority="high"
         placeholder="blur"
         sizes="100vw"
         className="h-[420px] w-full object-cover object-[50%_45%] md:h-[620px]"

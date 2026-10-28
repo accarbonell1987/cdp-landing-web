@@ -1,10 +1,16 @@
 // Datos editables del sitio. Todo lo que está entre [corchetes] es relleno
 // pendiente de confirmar por CDP (fase 5 del plan).
 
+// URL pública: la variable del proyecto si está, si no el dominio de producción que
+// Vercel asigna al build, y en local localhost.
+const productionHost = process.env.VERCEL_PROJECT_PRODUCTION_URL;
+const siteUrl =
+  process.env.NEXT_PUBLIC_SITE_URL ?? (productionHost ? `https://${productionHost}` : "http://localhost:3000");
+
 export const site = {
   name: "Cauchos del Paraguay S.A.",
   shortName: "CDP",
-  url: process.env.NEXT_PUBLIC_SITE_URL ?? "http://localhost:3000",
+  url: siteUrl,
   title: "Cauchos del Paraguay — Neumáticos hechos en Paraguay",
   description:
     "Cauchos del Paraguay S.A. construye en [Ciudad] una planta de neumáticos para autos, camionetas, utilitarios y el campo. Conocé el avance de la obra, la gama y cómo trabajar con nosotros.",

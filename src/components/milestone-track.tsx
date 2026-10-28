@@ -65,7 +65,7 @@ export function MilestoneTrack() {
             key={m.title}
             className={cn(
               "relative transition-[opacity,translate] duration-500",
-              active ? "translate-y-0 opacity-100" : "translate-y-3 opacity-60",
+              active ? "translate-y-0" : "translate-y-3",
             )}
           >
             {/* Below lg each stage draws its own piece of rail down to the next marker. */}

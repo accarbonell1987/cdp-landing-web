@@ -51,7 +51,7 @@ Documento: "Web CDP: plan por fases" (https://claude.ai/artifact/G1jsKhZaEAmSPPY
 2. Interacción y animación (21st.dev, recorrido en video, Leé tu neumático) ← hecho (aprobada en el repo anterior; entra a `main` por el PR "Fases 1 y 2")
    - Ajustes de diseño tras probar en local (rama `ajustes-diseno`): sin guion en los kickers, tarjetas más cálidas, fotos por tipo de neumático, timeline nuevo, SVG animados, tipografías
 3. Formularios y medición (contacto, WhatsApp, cookies, GA4) ← en pausa
-4. Calidad (WCAG, Lighthouse ≥ 90 en móvil, SEO técnico)
+4. Calidad (WCAG, Lighthouse ≥ 90 en móvil, SEO técnico) ← en revisión (rama `fase-4-calidad`): Lighthouse móvil 91–94 / 100 / 100 / 100, axe sin violaciones
 5. Contenido real y lanzamiento
 
 ## Convenciones de código
