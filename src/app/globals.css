@@ -172,6 +172,20 @@ h3 {
     background-position: top, bottom;
   }
 
+  /* Scroll reveal (see components/reveal.tsx). Only hidden once JS arms it. */
+  .reveal {
+    transition:
+      opacity 0.7s ease,
+      translate 0.7s ease,
+      filter 0.7s ease;
+    transition-delay: var(--reveal-delay, 0ms);
+  }
+  .reveal[data-reveal="hidden"] {
+    opacity: 0;
+    translate: 0 24px;
+    filter: blur(6px);
+  }
+
   .skip-link {
     position: absolute;
     left: 16px;
