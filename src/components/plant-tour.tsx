@@ -113,6 +113,8 @@ function ScrollTour() {
       video.currentTime = time;
     };
     const onSeeked = () => {
+      // A painted frame is the first moment the video can cover the poster.
+      setReady(true);
       if (pending !== null) seek(pending);
     };
 
@@ -154,16 +156,33 @@ function ScrollTour() {
       if (!tick) tick = requestAnimationFrame(update);
     };
 
+    // Metadata (the duration) is enough to start seeking. iOS Safari ignores
+    // preload and never fires "loadeddata" for a video that has not played, so
+    // waiting for it left the poster up for good on iPhone.
     const onLoaded = () => {
+      if (frames || !Number.isFinite(video.duration)) return;
       frames = Math.max(1, Math.round(video.duration * FPS));
-      setReady(true);
+      if (video.readyState >= 2) setReady(true);
       update();
+    };
+    // A muted inline play() + pause() makes iOS buffer the file so seeks paint.
+    // If the browser refuses (Low Power Mode), the poster stays as a fallback.
+    let primed = false;
+    const prime = () => {
+      if (primed) return;
+      primed = true;
+      video
+        .play()
+        .then(() => video.pause())
+        .catch(() => {});
     };
 
     video.muted = true;
     video.addEventListener("seeked", onSeeked);
-    if (video.readyState >= 2) onLoaded();
-    else video.addEventListener("loadeddata", onLoaded, { once: true });
+    video.addEventListener("loadedmetadata", onLoaded);
+    video.addEventListener("loadeddata", onLoaded);
+    if (video.readyState >= 1) onLoaded();
+    prime();
     update();
     window.addEventListener("scroll", onScroll, { passive: true });
     window.addEventListener("resize", onScroll);
@@ -172,6 +191,7 @@ function ScrollTour() {
       window.removeEventListener("scroll", onScroll);
       window.removeEventListener("resize", onScroll);
       video.removeEventListener("seeked", onSeeked);
+      video.removeEventListener("loadedmetadata", onLoaded);
       video.removeEventListener("loadeddata", onLoaded);
       cancelAnimationFrame(tick);
       cancelAnimationFrame(chase);
