@@ -16,6 +16,7 @@ Contexto para cualquier desarrollador o agente que abra este repo. Leer completo
   ```
 
 - Flujo: una rama y un PR por fase (`fase-1-maqueta`, `fase-2-animacion`, …). Vercel genera la vista previa de cada PR. No se mergea una fase sin la revisión de Alberto Carlos.
+- Commits sin atribuciones de IA: no agregar `Co-Authored-By`, enlaces de sesión ni ninguna mención a Claude u otra IA en los mensajes de commit.
 
 ## Qué es el proyecto
 
@@ -44,8 +45,8 @@ Web institucional de **Cauchos del Paraguay S.A. (CDP)**, una fábrica de **neum
 
 Documento: "Web CDP: plan por fases" (https://claude.ai/artifact/G1jsKhZaEAmSPPYHihk5FT).
 
-0. Base técnica ← hecho
-1. Maqueta de secciones (sin animación, textos en `src/data/`)
+0. Base técnica ← hecho (falta conectar Vercel)
+1. Maqueta de secciones (sin animación, textos en `src/data/`) ← en revisión (PR `fase-1-maqueta`)
 2. Interacción y animación (21st.dev, recorrido en video, Leé tu neumático)
 3. Formularios y medición (contacto, WhatsApp, cookies, GA4)
 4. Calidad (WCAG, Lighthouse ≥ 90 en móvil, SEO técnico)
