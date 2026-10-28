@@ -6,7 +6,8 @@ Contexto para cualquier desarrollador o agente que abra este repo. Leer completo
 
 ## Repositorio y cuenta de GitHub (obligatorio)
 
-- Repo: https://github.com/alafourcadev/cdp-corporative-web
+- Repo: https://github.com/accarbonell1987/cdp-landing-web (propio de `accarbonell1987`; desde acá se conecta Vercel).
+- Repo anterior, ya no se usa: `alafourcadev/cdp-corporative-web`. Su historial (fases 0 a 2 y los PR #1 y #2) se migró completo a este.
 - **Siempre se trabaja con la cuenta `accarbonell1987`.** Nunca con otra cuenta (en particular, no `accarbonelld2`).
 - Si `git push` o `gh` devuelven 403/404 en este repo, casi siempre es porque la cuenta activa de `gh` cambió:
 
@@ -45,10 +46,11 @@ Web institucional de **Cauchos del Paraguay S.A. (CDP)**, una fábrica de **neum
 
 Documento: "Web CDP: plan por fases" (https://claude.ai/artifact/G1jsKhZaEAmSPPYHihk5FT).
 
-0. Base técnica ← hecho (falta conectar Vercel)
-1. Maqueta de secciones (sin animación, textos en `src/data/`) ← en revisión (PR #1)
-2. Interacción y animación (21st.dev, recorrido en video, Leé tu neumático) ← en curso (rama `fase-2-animacion`)
-3. Formularios y medición (contacto, WhatsApp, cookies, GA4)
+0. Base técnica ← hecho (falta importar este repo en Vercel)
+1. Maqueta de secciones (sin animación, textos en `src/data/`) ← hecho
+2. Interacción y animación (21st.dev, recorrido en video, Leé tu neumático) ← hecho (aprobada en el repo anterior; entra a `main` por el PR "Fases 1 y 2")
+   - Ajustes de diseño tras probar en local (rama `ajustes-diseno`): sin guion en los kickers, tarjetas más cálidas, fotos por tipo de neumático, timeline nuevo, SVG animados, tipografías
+3. Formularios y medición (contacto, WhatsApp, cookies, GA4) ← en pausa
 4. Calidad (WCAG, Lighthouse ≥ 90 en móvil, SEO técnico)
 5. Contenido real y lanzamiento
 
