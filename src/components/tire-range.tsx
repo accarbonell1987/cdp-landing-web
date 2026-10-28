@@ -16,7 +16,7 @@ export function TireRange() {
         />
         <ul className="grid gap-5 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
           {tireFamilies.map((family, i) => (
-            <Reveal as="li" key={family.id} delay={i * 70} className="card-soft flex flex-col overflow-hidden">
+            <Reveal as="li" key={family.id} variant="rise" delay={i * 120} className="card-soft flex flex-col overflow-hidden">
               <div className="relative aspect-[4/3] overflow-hidden bg-mist">
                 <Image
                   src={family.image}

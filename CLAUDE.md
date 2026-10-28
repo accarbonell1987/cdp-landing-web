@@ -40,6 +40,7 @@ Web institucional de **Cauchos del Paraguay S.A. (CDP)**, una fábrica de **neum
 | SEO | Metadata y Open Graph en `src/app/layout.tsx`, JSON-LD `Organization`, `sitemap.ts`, `robots.ts`, imagen OG 1200×630 |
 | Analítica | GA4 vía Google Tag Manager con Consent Mode v2, cargado solo tras aceptar cookies (Ley 7593/2025 de datos personales de Paraguay). Fase 3 |
 | Accesibilidad | WCAG 2.2 AA: contraste ≥ 4,5:1, foco visible, targets ≥ 44 px, `prefers-reduced-motion` (sin video ni scroll animado), skip link, landmarks, `alt` descriptivos |
+| Animaciones con renders | Rama `animaciones-renders`: Ken Burns en el hero, scrub "plano → obra" en Avance, mapa del predio con hotspots, galería con reveal y parallax, cortina en Nosotros y Empleo. Componentes en `src/components/animations/`, datos en `src/data/renders.ts`, CSS con prefijo `cdp-` en `globals.css`. Vanilla, sin librerías de animación |
 | Deploy | Vercel. Headers de seguridad y CSP (preparada para GTM/GA4) en `vercel.json` |
 
 ## Plan por fases
@@ -48,10 +49,10 @@ Documento: "Web CDP: plan por fases" (https://claude.ai/artifact/G1jsKhZaEAmSPPY
 
 0. Base técnica ← hecho (falta importar este repo en Vercel)
 1. Maqueta de secciones (sin animación, textos en `src/data/`) ← hecho
-2. Interacción y animación (21st.dev, recorrido en video, Leé tu neumático) ← hecho (aprobada en el repo anterior; entra a `main` por el PR "Fases 1 y 2")
+2. Interacción y animación (21st.dev, recorrido en video, Leé tu neumático) ← hecho (en `main`)
    - Ajustes de diseño tras probar en local (rama `ajustes-diseno`): sin guion en los kickers, tarjetas más cálidas, fotos por tipo de neumático, timeline nuevo, SVG animados, tipografías
 3. Formularios y medición (contacto, WhatsApp, cookies, GA4) ← en pausa
-4. Calidad (WCAG, Lighthouse ≥ 90 en móvil, SEO técnico) ← en revisión (rama `fase-4-calidad`): Lighthouse móvil 91–94 / 100 / 100 / 100, axe sin violaciones
+4. Calidad (WCAG, Lighthouse ≥ 90 en móvil, SEO técnico) ← hecho (en `main`): Lighthouse móvil 91–94 / 100 / 100 / 100, axe sin violaciones
 5. Contenido real y lanzamiento
 
 ## Convenciones de código

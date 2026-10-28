@@ -8,6 +8,7 @@ import { Progress } from "@/components/progress";
 import { ReadYourTire } from "@/components/read-your-tire";
 import { SiteFooter } from "@/components/site-footer";
 import { SiteHeader } from "@/components/site-header";
+import { SiteMap } from "@/components/site-map";
 import { TireRange } from "@/components/tire-range";
 
 export default function Home() {
@@ -18,6 +19,7 @@ export default function Home() {
         <Hero />
         <About />
         <PlantTour />
+        <SiteMap />
         <Progress />
         <TireRange />
         <ReadYourTire />
