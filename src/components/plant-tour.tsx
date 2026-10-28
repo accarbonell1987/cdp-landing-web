@@ -66,9 +66,28 @@ function ScrollTour() {
   const barRef = useRef<HTMLDivElement>(null);
   const captionRefs = useRef<(HTMLElement | null)[]>([]);
   const [ready, setReady] = useState(false);
+  // The video starts downloading only when the section is a screen away, so it
+  // does not compete with the hero on first load.
+  const [near, setNear] = useState(false);
   // Known only after mount, so only one cut is downloaded.
   const small = useMediaQuery("(max-width: 640px)");
-  const src = small === null ? null : small ? "/media/recorrido-scrub-movil.mp4" : "/media/recorrido-scrub.mp4";
+  const src =
+    small === null || !near ? null : small ? "/media/recorrido-scrub-movil.mp4" : "/media/recorrido-scrub.mp4";
+
+  useEffect(() => {
+    const section = sectionRef.current;
+    if (!section) return;
+    const observer = new IntersectionObserver(
+      ([entry]) => {
+        if (!entry.isIntersecting) return;
+        setNear(true);
+        observer.disconnect();
+      },
+      { rootMargin: "100% 0px" },
+    );
+    observer.observe(section);
+    return () => observer.disconnect();
+  }, []);
 
   useEffect(() => {
     const section = sectionRef.current;
@@ -168,7 +187,7 @@ function ScrollTour() {
     >
       <div className="sticky top-0 h-[min(100svh,860px)] overflow-hidden">
         <div ref={frameRef} className="absolute inset-0 origin-[50%_60%] will-change-transform">
-          <Image src="/media/recorrido-poster.jpg" alt="" fill preload sizes="100vw" className="object-cover" />
+          <Image src="/media/recorrido-poster.jpg" alt="" fill sizes="100vw" className="object-cover" />
           {src && (
             <video
               ref={videoRef}

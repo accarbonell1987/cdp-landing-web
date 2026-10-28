@@ -19,8 +19,8 @@ export function SiteHeader() {
             <Image
               src="/brand/cdp-full-graphite.png"
               alt=""
-              width={882}
-              height={334}
+              width={137}
+              height={52}
               preload
               className="h-[52px] w-auto"
             />
