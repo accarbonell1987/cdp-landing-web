@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/reveal";
 import { contactReasons } from "@/data/company";
 import { site } from "@/data/site";
 
@@ -30,55 +31,57 @@ export function Contact() {
             <span>{email}</span>
           </address>
         </div>
-        <form aria-labelledby="contacto-title" className="flex flex-col gap-[18px] rounded-[20px] bg-white p-8">
-          <div className={field}>
-            <label htmlFor="contacto-nombre" className={label}>
-              Nombre y apellido
-            </label>
-            <input id="contacto-nombre" name="nombre" type="text" autoComplete="name" required className={control} />
-          </div>
-          <div className={field}>
-            <label htmlFor="contacto-email" className={label}>
-              Email
-            </label>
-            <input id="contacto-email" name="email" type="email" autoComplete="email" required className={control} />
-          </div>
-          <div className={field}>
-            <label htmlFor="contacto-area" className={label}>
-              Área
-            </label>
-            <select id="contacto-area" name="area" className={control}>
-              {contactReasons.map((reason) => (
-                <option key={reason}>{reason}</option>
-              ))}
-            </select>
-          </div>
-          <div className={field}>
-            <label htmlFor="contacto-mensaje" className={label}>
-              Mensaje
-            </label>
-            <textarea id="contacto-mensaje" name="mensaje" rows={4} className={control} />
-          </div>
-          <div className="flex items-start gap-2.5">
-            <input
-              id="contacto-privacidad"
-              name="privacidad"
-              type="checkbox"
-              required
-              className="mt-0.5 size-6 flex-none accent-navy"
-            />
-            <label htmlFor="contacto-privacidad" className="text-[16px]">
-              Acepto la{" "}
-              <a href="#inicio" className="text-navy underline">
-                política de privacidad
-              </a>
-              .
-            </label>
-          </div>
-          <Button type="submit" className="self-start">
-            Enviar
-          </Button>
-        </form>
+        <Reveal>
+          <form aria-labelledby="contacto-title" className="flex flex-col gap-[18px] rounded-[20px] bg-white p-8">
+            <div className={field}>
+              <label htmlFor="contacto-nombre" className={label}>
+                Nombre y apellido
+              </label>
+              <input id="contacto-nombre" name="nombre" type="text" autoComplete="name" required className={control} />
+            </div>
+            <div className={field}>
+              <label htmlFor="contacto-email" className={label}>
+                Email
+              </label>
+              <input id="contacto-email" name="email" type="email" autoComplete="email" required className={control} />
+            </div>
+            <div className={field}>
+              <label htmlFor="contacto-area" className={label}>
+                Área
+              </label>
+              <select id="contacto-area" name="area" className={control}>
+                {contactReasons.map((reason) => (
+                  <option key={reason}>{reason}</option>
+                ))}
+              </select>
+            </div>
+            <div className={field}>
+              <label htmlFor="contacto-mensaje" className={label}>
+                Mensaje
+              </label>
+              <textarea id="contacto-mensaje" name="mensaje" rows={4} className={control} />
+            </div>
+            <div className="flex items-start gap-2.5">
+              <input
+                id="contacto-privacidad"
+                name="privacidad"
+                type="checkbox"
+                required
+                className="mt-0.5 size-6 flex-none accent-navy"
+              />
+              <label htmlFor="contacto-privacidad" className="text-[16px]">
+                Acepto la{" "}
+                <a href="#inicio" className="text-navy underline">
+                  política de privacidad
+                </a>
+                .
+              </label>
+            </div>
+            <Button type="submit" className="self-start">
+              Enviar
+            </Button>
+          </form>
+        </Reveal>
       </div>
     </section>
   );
