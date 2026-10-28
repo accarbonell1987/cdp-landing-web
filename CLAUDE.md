@@ -16,7 +16,7 @@ Contexto para cualquier desarrollador o agente que abra este repo. Leer completo
   ```
 
 - Flujo: una rama y un PR por fase (`fase-1-maqueta`, `fase-2-animacion`, …). Vercel genera la vista previa de cada PR. No se mergea una fase sin la revisión de Alberto Carlos.
-- Commits sin atribuciones de IA: no agregar `Co-Authored-By`, enlaces de sesión ni ninguna mención a Claude u otra IA en los mensajes de commit.
+- Commits y PRs sin atribuciones de IA: no agregar `Co-Authored-By`, enlaces de sesión, pies tipo "Generated with" ni ninguna mención a Claude u otra IA en mensajes de commit, títulos o descripciones de PR.
 
 ## Qué es el proyecto
 
