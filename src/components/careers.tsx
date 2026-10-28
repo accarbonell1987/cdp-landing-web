@@ -1,6 +1,7 @@
 import Image from "next/image";
 import salaEspera from "@/assets/media/render-sala-espera.jpg";
 import { Button } from "@/components/ui/button";
+import { LottieIcon } from "@/components/lottie-icon";
 import { Reveal } from "@/components/reveal";
 import { jobs } from "@/data/company";
 
@@ -8,8 +9,9 @@ export function Careers() {
   return (
     <section id="empleo" aria-labelledby="empleo-title" className="pb-24">
       <div className="wrap">
-        <Reveal className="grid overflow-hidden rounded-3xl bg-white lg:grid-cols-2">
+        <Reveal className="group grid overflow-hidden rounded-3xl bg-white lg:grid-cols-2">
           <div className="flex flex-col items-start gap-5 p-[clamp(28px,4vw,56px)]">
+            <LottieIcon src="/lottie/engranajes.json" loop className="size-20" />
             <p className="kicker">Empleo</p>
             <h2 id="empleo-title" className="display text-[clamp(34px,3.8vw,56px)]">
               {jobs.title}

@@ -4,9 +4,9 @@ export const about = {
   title: "Una empresa paraguaya con vocación regional.",
   text: "Cauchos del Paraguay S.A. reúne a inversores y técnicos [paraguayos] con un objetivo: fabricar en el país los neumáticos que hoy se importan. Queremos ser el proveedor de confianza de distribuidores, flotas y productores del Mercosur.",
   values: [
-    { title: "Respeto por las personas.", text: "Seguridad y formación en cada puesto." },
-    { title: "Respeto por el ambiente.", text: "Menos residuos, más reciclado de caucho." },
-    { title: "Respeto por el cliente.", text: "Calidad medida y atención cercana." },
+    { title: "Respeto por las personas.", text: "Seguridad y formación en cada puesto.", icon: "/lottie/personas.json" },
+    { title: "Respeto por el ambiente.", text: "Menos residuos, más reciclado de caucho.", icon: "/lottie/ambiente.json" },
+    { title: "Respeto por el cliente.", text: "Calidad medida y atención cercana.", icon: "/lottie/cliente.json" },
   ],
 };
 
