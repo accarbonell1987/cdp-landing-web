@@ -1,7 +1,13 @@
 // Familias de neumáticos y guía del código del flanco.
 // Medidas y rodados son de ejemplo hasta la homologación de cada producto.
+// Fotos de referencia de Unsplash (licencia libre); ver src/assets/media/neumaticos/fuentes.md.
 
-export type TreadPattern = "rib" | "allTerrain" | "cargo" | "truck" | "agro";
+import type { StaticImageData } from "next/image";
+import agricola from "@/assets/media/neumaticos/agricola.jpg";
+import autos from "@/assets/media/neumaticos/autos.jpg";
+import camion from "@/assets/media/neumaticos/camion.jpg";
+import suv from "@/assets/media/neumaticos/suv.jpg";
+import utilitarios from "@/assets/media/neumaticos/utilitarios.jpg";
 
 export type TireFamily = {
   id: string;
@@ -10,7 +16,7 @@ export type TireFamily = {
   features: string[];
   rims: string;
   example: string;
-  pattern: TreadPattern;
+  image: StaticImageData;
 };
 
 export const tireFamilies: TireFamily[] = [
@@ -21,7 +27,7 @@ export const tireFamilies: TireFamily[] = [
     features: ["Surcos longitudinales que evacuan agua", "Compuesto de bajo desgaste"],
     rims: "[13 a 17]",
     example: "185/65 R15 88H",
-    pattern: "rib",
+    image: autos,
   },
   {
     id: "suv",
@@ -30,7 +36,7 @@ export const tireFamilies: TireFamily[] = [
     features: ["Bloques abiertos para tracción", "Flanco reforzado contra cortes"],
     rims: "[15 a 18]",
     example: "265/70 R16 112T",
-    pattern: "allTerrain",
+    image: suv,
   },
   {
     id: "utilitarios",
@@ -39,7 +45,7 @@ export const tireFamilies: TireFamily[] = [
     features: ["Carcasa de mayor capacidad de carga", "Banda pensada para muchos kilómetros"],
     rims: "[14 a 16]",
     example: "205/75 R16C",
-    pattern: "cargo",
+    image: utilitarios,
   },
   {
     id: "camion-bus",
@@ -48,7 +54,7 @@ export const tireFamilies: TireFamily[] = [
     features: ["Estructura apta para recapado", "Opciones para eje direccional y tracción"],
     rims: "[17,5 a 22,5]",
     example: "295/80 R22.5",
-    pattern: "truck",
+    image: camion,
   },
   {
     id: "agricola",
@@ -57,7 +63,7 @@ export const tireFamilies: TireFamily[] = [
     features: ["Tacos profundos y autolimpiantes", "Menos compactación del suelo"],
     rims: "[24 a 38]",
     example: "18.4-34 R1",
-    pattern: "agro",
+    image: agricola,
   },
 ];
 

@@ -34,7 +34,7 @@ Web institucional de **Cauchos del Paraguay S.A. (CDP)**, una fábrica de **neum
 | --- | --- |
 | Stack | Next.js 16 (App Router, páginas estáticas, `cacheComponents`), React 19, TypeScript, Tailwind 4 |
 | Componentes | shadcn/ui (`components.json`) + componentes y animaciones de **21st.dev** (vía su conector MCP). Antes de traer código de 21st se muestran opciones: traerlo consume créditos |
-| Dirección de diseño | "Hecho en Paraguay" (institucional): blanco, azul `#0B2A5B`, rojo `#B81D2B`, tipografías Sora (títulos) y Source Sans 3 (texto). Prototipo en el canvas "CDP propuestas de diseño" (artboard 3) |
+| Dirección de diseño | "Hecho en Paraguay" (institucional): blanco, azul `#0B2A5B`, rojo `#B81D2B`, tipografías Bricolage Grotesque (títulos) y Figtree (texto), ambas de Google Fonts con licencia OFL. Prototipo en el canvas "CDP propuestas de diseño" (artboard 3) |
 | Secciones | Header, hero, nosotros, recorrido en video con scroll, avance de obra, tipos de neumáticos, "Leé tu neumático" (interactivo), empleo, novedades, contacto, footer |
 | Recorrido en video | Sección fija (sticky) donde el scroll avanza el video y al final da paso a la siguiente sección, estilo Apple. Video: `public/media/recorrido-scrub.mp4` y `recorrido-scrub-movil.mp4` (5 s, 24 fps, todos los cuadros son keyframes: `ffmpeg -g 1`, si no el seek salta). Lógica en `src/components/plant-tour.tsx`, adaptada de "Magic Hour" (21st.dev) |
 | SEO | Metadata y Open Graph en `src/app/layout.tsx`, JSON-LD `Organization`, `sitemap.ts`, `robots.ts`, imagen OG 1200×630 |

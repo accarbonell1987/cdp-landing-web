@@ -1,5 +1,6 @@
 "use client";
 
+import { Check, Clock } from "lucide-react";
 import { useEffect, useRef, useState } from "react";
 import { type MilestoneStatus, milestones } from "@/data/company";
 import { cn } from "@/lib/utils";
@@ -10,10 +11,10 @@ const statusLabel: Record<MilestoneStatus, string> = {
   proximo: "Próximo",
 };
 
-// Line that draws itself as the section crosses the middle of the screen, based on
-// "Scroll animated timeline" (21st.dev). Horizontal from lg, vertical below. Each
-// milestone lights up when the line reaches it. Without JS or with reduced motion
-// the line is drawn in full.
+// Milestone cards on a rail that fills in red as the section scrolls into view,
+// based on "Scroll animated timeline" (21st.dev). Horizontal from lg, vertical
+// below. Each marker lights up when the rail reaches it; the stage in progress
+// gets the white card. Without JS or with reduced motion the rail is drawn in full.
 export function MilestoneTrack() {
   const ref = useRef<HTMLOListElement>(null);
   const [progress, setProgress] = useState(1);
@@ -46,14 +47,15 @@ export function MilestoneTrack() {
   const last = milestones.length - 1 || 1;
 
   return (
-    <ol ref={ref} className="relative grid gap-y-10 pl-8 lg:grid-cols-4 lg:pl-0">
+    <ol ref={ref} className="relative grid gap-6 pl-14 lg:grid-cols-4 lg:gap-5 lg:pt-14 lg:pl-0">
+      {/* Horizontal rail through the centre of the markers, from lg. */}
       <span
         aria-hidden="true"
-        className="absolute top-0 bottom-0 left-[3px] w-1 bg-navy-soft lg:inset-x-0 lg:bottom-auto lg:h-1 lg:w-auto"
+        className="absolute top-[18px] right-[12.5%] left-[12.5%] h-1 rounded-full bg-white/15 max-lg:hidden"
       />
       <span
         aria-hidden="true"
-        className="absolute top-0 bottom-0 left-[3px] w-1 origin-top bg-white transition-transform duration-150 ease-out lg:inset-x-0 lg:bottom-auto lg:h-1 lg:w-auto lg:origin-left max-lg:[transform:scaleY(var(--p))] lg:[transform:scaleX(var(--p))]"
+        className="absolute top-[18px] right-[12.5%] left-[12.5%] h-1 origin-left rounded-full bg-red transition-transform duration-150 ease-out [transform:scaleX(var(--p))] max-lg:hidden"
         style={{ "--p": progress } as React.CSSProperties}
       />
       {milestones.map((m, i) => {
@@ -62,30 +64,62 @@ export function MilestoneTrack() {
           <li
             key={m.title}
             className={cn(
-              "relative flex flex-col gap-3 pr-6 transition-[opacity,translate] duration-500 lg:pt-6",
+              "relative transition-[opacity,translate] duration-500",
               active ? "translate-y-0 opacity-100" : "translate-y-3 opacity-60",
             )}
           >
+            {/* Below lg each stage draws its own piece of rail down to the next marker. */}
+            {i < last && (
+              <span aria-hidden="true" className="absolute top-10 -bottom-6 -left-[38px] w-1 bg-white/15 lg:hidden">
+                <span
+                  className="block size-full origin-top bg-red transition-transform duration-150 ease-out [transform:scaleY(var(--s))]"
+                  style={{ "--s": Math.min(1, Math.max(0, progress * last - i)) } as React.CSSProperties}
+                />
+              </span>
+            )}
             <span
               aria-hidden="true"
               className={cn(
-                "absolute top-1.5 -left-8 size-3 -translate-x-[3px] rounded-full border-2 transition-colors lg:-top-1 lg:left-0 lg:translate-x-0",
-                active ? "border-white bg-red" : "border-navy-soft bg-navy",
-              )}
-            />
-            <span
-              className={cn(
-                "self-start rounded-full text-[15px] font-bold",
-                m.status === "hecho" && "bg-white px-3 py-0.5 text-navy",
-                m.status === "en-curso" && "px-3 py-0.5 text-white shadow-[inset_0_0_0_1.5px_#fff]",
-                m.status === "proximo" && "py-0.5 text-[#d5dcea]",
+                "absolute top-0 -left-14 grid size-10 place-items-center rounded-full border-4 border-navy transition-colors duration-500 lg:-top-14 lg:left-1/2 lg:-translate-x-1/2",
+                !active && "bg-navy-soft text-white",
+                active && m.status === "hecho" && "bg-white text-navy",
+                active && m.status === "en-curso" && "bg-red text-white",
+                active && m.status === "proximo" && "bg-white/20 text-white",
               )}
             >
-              {statusLabel[m.status]}
+              {m.status === "hecho" && <Check className="size-4" strokeWidth={3} />}
+              {m.status === "en-curso" && (
+                <span className="relative flex size-2.5">
+                  <span className="absolute inline-flex size-full animate-ping rounded-full bg-white opacity-75 motion-reduce:animate-none" />
+                  <span className="relative inline-flex size-2.5 rounded-full bg-white" />
+                </span>
+              )}
+              {m.status === "proximo" && <Clock className="size-4" strokeWidth={2.5} />}
             </span>
-            <span className="display text-[32px]">{m.year}</span>
-            <h3 className="text-[21px] font-bold">{m.title}</h3>
-            <p className="text-[17px] text-[#d5dcea]">{m.text}</p>
+            <div
+              className={cn(
+                "flex h-full flex-col gap-2 rounded-[20px] p-6 transition-colors duration-500",
+                m.status === "en-curso" ? "bg-white text-ink" : "bg-white/[0.07] text-white",
+              )}
+            >
+              <div className="flex items-center justify-between gap-3">
+                <span className="display text-[30px]">{m.year}</span>
+                <span
+                  className={cn(
+                    "rounded-full px-3 py-0.5 text-[14px] font-bold",
+                    m.status === "hecho" && "bg-white text-navy",
+                    m.status === "en-curso" && "bg-red text-white",
+                    m.status === "proximo" && "text-[#d5dcea] shadow-[inset_0_0_0_1.5px_rgba(213,220,234,0.6)]",
+                  )}
+                >
+                  {statusLabel[m.status]}
+                </span>
+              </div>
+              <h3 className="text-[21px] font-bold">{m.title}</h3>
+              <p className={cn("text-[17px]", m.status === "en-curso" ? "text-ink-soft" : "text-[#d5dcea]")}>
+                {m.text}
+              </p>
+            </div>
           </li>
         );
       })}

@@ -83,7 +83,7 @@ function TireDiagram({ focus }: { focus?: "width" | "profile" | "rim" }) {
       <rect x="130" y="20" width="160" height="70" rx="26" fill="#16233A" />
       <rect x="130" y="130" width="160" height="70" rx="26" fill="#16233A" />
       <rect x="150" y="90" width="120" height="40" fill="#C9D1DE" />
-      <g fontSize="13" fontFamily="var(--font-source-sans), sans-serif" fill="var(--ink)">
+      <g fontSize="13" fontFamily="var(--font-figtree), sans-serif" fill="var(--ink)">
         <g className={tone("width")}>
           <line x1="130" y1="10" x2="290" y2="10" stroke="var(--red)" strokeWidth={focus === "width" ? 4 : 2} />
           <text x="210" y="2" textAnchor="middle">

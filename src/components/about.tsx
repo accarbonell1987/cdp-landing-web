@@ -1,5 +1,6 @@
 import Image from "next/image";
 import recepcion from "@/assets/media/render-recepcion.jpg";
+import { LottieIcon } from "@/components/lottie-icon";
 import { Reveal } from "@/components/reveal";
 import { about } from "@/data/company";
 
@@ -15,8 +16,10 @@ export function About() {
           <p className="max-w-[58ch] text-ink-soft">{about.text}</p>
           <ul className="mt-2 grid gap-4">
             {about.values.map((value) => (
-              <li key={value.title} className="flex gap-3.5">
-                <span aria-hidden="true" className="mt-[9px] size-2.5 flex-none rounded-full bg-red" />
+              <li key={value.title} className="group flex items-center gap-4">
+                <span className="grid size-14 flex-none place-items-center rounded-2xl bg-mist">
+                  <LottieIcon src={value.icon} className="size-12" />
+                </span>
                 <span>
                   <strong>{value.title}</strong> {value.text}
                 </span>

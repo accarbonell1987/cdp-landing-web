@@ -1,4 +1,5 @@
 import { Button } from "@/components/ui/button";
+import { LottieIcon } from "@/components/lottie-icon";
 import { Reveal } from "@/components/reveal";
 import { contactReasons } from "@/data/company";
 import { site } from "@/data/site";
@@ -23,12 +24,19 @@ export function Contact() {
           <p className="text-ink-soft">
             Clientes, proveedores, postulantes y prensa: escribinos y te derivamos al área correcta.
           </p>
-          <address className="flex flex-col gap-2.5 not-italic">
-            <span>
-              {address}, {city}, Paraguay
-            </span>
-            <span>{phone}</span>
-            <span>{email}</span>
+          <address className="flex flex-col gap-3 not-italic">
+            {[
+              { icon: "/lottie/ubicacion.json", text: `${address}, ${city}, Paraguay` },
+              { icon: "/lottie/telefono.json", text: phone },
+              { icon: "/lottie/email.json", text: email },
+            ].map((line) => (
+              <span key={line.icon} className="group flex items-center gap-3">
+                <span className="grid size-12 flex-none place-items-center rounded-xl bg-white">
+                  <LottieIcon src={line.icon} className="size-10" />
+                </span>
+                {line.text}
+              </span>
+            ))}
           </address>
         </div>
         <Reveal>

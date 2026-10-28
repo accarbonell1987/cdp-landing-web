@@ -1,16 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Sora, Source_Sans_3 } from "next/font/google";
+import { Bricolage_Grotesque, Figtree } from "next/font/google";
 import { site } from "@/data/site";
 import "./globals.css";
 
-const sora = Sora({
-  variable: "--font-sora",
+const bricolage = Bricolage_Grotesque({
+  variable: "--font-bricolage",
   subsets: ["latin"],
   weight: ["600", "700", "800"],
 });
 
-const sourceSans = Source_Sans_3({
-  variable: "--font-source-sans",
+const figtree = Figtree({
+  variable: "--font-figtree",
   subsets: ["latin"],
   weight: ["400", "600", "700"],
 });
@@ -57,7 +57,7 @@ const organizationJsonLd = {
 
 export default function RootLayout({ children }: LayoutProps<"/">) {
   return (
-    <html lang="es-PY" className={`${sora.variable} ${sourceSans.variable} antialiased`}>
+    <html lang="es-PY" className={`${bricolage.variable} ${figtree.variable} antialiased`}>
       {/* Browser extensions (Grammarly, ColorZilla) add attributes to <body> before hydration;
           this silences that attribute mismatch on <body> only, not on its children. */}
       <body suppressHydrationWarning>
