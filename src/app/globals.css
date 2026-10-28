@@ -72,8 +72,8 @@
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
 
-  --font-display: var(--font-sora);
-  --font-sans: var(--font-source-sans);
+  --font-display: var(--font-bricolage);
+  --font-sans: var(--font-figtree);
 }
 
 html {
@@ -85,7 +85,7 @@ html {
 body {
   background: var(--paper);
   color: var(--ink);
-  font-family: var(--font-source-sans), system-ui, sans-serif;
+  font-family: var(--font-figtree), system-ui, sans-serif;
   font-size: 19px;
   line-height: 1.55;
 }
@@ -115,9 +115,9 @@ h3 {
   }
 
   .display {
-    font-family: var(--font-sora), system-ui, sans-serif;
+    font-family: var(--font-bricolage), system-ui, sans-serif;
     font-weight: 700;
-    letter-spacing: -0.025em;
+    letter-spacing: -0.02em;
     line-height: 1.04;
   }
 
