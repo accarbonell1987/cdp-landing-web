@@ -1,7 +1,6 @@
-import Image from "next/image";
 import recepcion from "@/assets/media/render-recepcion.jpg";
+import { CortinaReveal } from "@/components/animations/cortina-reveal";
 import { LottieIcon } from "@/components/lottie-icon";
-import { Reveal } from "@/components/reveal";
 import { about } from "@/data/company";
 
 export function About() {
@@ -27,20 +26,17 @@ export function About() {
             ))}
           </ul>
         </div>
-        <Reveal>
-          <figure className="flex flex-col gap-2.5">
-            <Image
-              src={recepcion}
-              alt="Visualización de la recepción de la planta con mostrador de madera y el logotipo CDP"
-              placeholder="blur"
-              sizes="(min-width: 1024px) 50vw, 100vw"
-              className="aspect-[4/3] w-full rounded-[20px] object-cover"
-            />
-            <figcaption className="text-[15px] text-muted-foreground">
-              Recepción de las oficinas. Visualización del proyecto.
-            </figcaption>
-          </figure>
-        </Reveal>
+        <figure className="flex flex-col gap-2.5">
+          <CortinaReveal
+            src={recepcion}
+            alt="Visualización de la recepción de la planta con mostrador de madera y el logotipo CDP"
+            sizes="(min-width: 1024px) 50vw, 100vw"
+            className="aspect-[4/3] w-full rounded-[20px]"
+          />
+          <figcaption className="text-[15px] text-muted-foreground">
+            Recepción de las oficinas. Visualización del proyecto.
+          </figcaption>
+        </figure>
       </div>
     </section>
   );

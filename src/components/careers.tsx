@@ -1,5 +1,5 @@
-import Image from "next/image";
 import salaEspera from "@/assets/media/render-sala-espera.jpg";
+import { CortinaReveal } from "@/components/animations/cortina-reveal";
 import { Button } from "@/components/ui/button";
 import { LottieIcon } from "@/components/lottie-icon";
 import { Reveal } from "@/components/reveal";
@@ -29,13 +29,11 @@ export function Careers() {
             </Button>
           </div>
           <figure className="relative min-h-[360px]">
-            <Image
+            <CortinaReveal
               src={salaEspera}
               alt="Visualización de la sala de espera de las oficinas"
-              placeholder="blur"
-              fill
               sizes="(min-width: 1024px) 50vw, 100vw"
-              className="object-cover"
+              className="absolute inset-0"
             />
             <figcaption className="absolute bottom-3 left-4 rounded-full bg-white/90 px-3 py-1 text-[14px] text-ink-soft">
               Visualización del proyecto
