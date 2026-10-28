@@ -44,7 +44,7 @@ export const tireFamilies: TireFamily[] = [
   {
     id: "camion-bus",
     name: "Camión y bus",
-    use: "Larga distancia y transporte de pasajeros. [Confirmar si entra en la gama.]",
+    use: "Larga distancia y transporte de pasajeros.",
     features: ["Estructura apta para recapado", "Opciones para eje direccional y tracción"],
     rims: "[17,5 a 22,5]",
     example: "295/80 R22.5",
