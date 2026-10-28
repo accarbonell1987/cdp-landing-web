@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/reveal";
 import { SectionHeading } from "@/components/section-heading";
 import { tireFamilies } from "@/data/tires";
 
@@ -12,8 +13,8 @@ export function TireRange() {
           aside="Cinco familias para lo que se mueve en Paraguay. Medidas y modelos de ejemplo, sujetos a homologación."
         />
         <ul className="grid gap-4 sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-5">
-          {tireFamilies.map((family) => (
-            <li key={family.id} className="flex flex-col rounded-2xl bg-white">
+          {tireFamilies.map((family, i) => (
+            <Reveal as="li" key={family.id} delay={i * 70} className="flex flex-col rounded-2xl bg-white">
               {/* Dibujo de banda de rodamiento hecho con CSS, uno por familia. */}
               <div aria-hidden="true" className={`tread tread-${family.pattern}`} />
               <div className="flex flex-1 flex-col gap-3 p-6">
@@ -31,7 +32,7 @@ export function TireRange() {
                   <dd className="text-right font-semibold">{family.example}</dd>
                 </dl>
               </div>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

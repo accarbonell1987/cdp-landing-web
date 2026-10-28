@@ -35,7 +35,7 @@ Web institucional de **Cauchos del Paraguay S.A. (CDP)**, una fábrica de **neum
 | Componentes | shadcn/ui (`components.json`) + componentes y animaciones de **21st.dev** (vía su conector MCP). Antes de traer código de 21st se muestran opciones: traerlo consume créditos |
 | Dirección de diseño | "Hecho en Paraguay" (institucional): blanco, azul `#0B2A5B`, rojo `#B81D2B`, tipografías Sora (títulos) y Source Sans 3 (texto). Prototipo en el canvas "CDP propuestas de diseño" (artboard 3) |
 | Secciones | Header, hero, nosotros, recorrido en video con scroll, avance de obra, tipos de neumáticos, "Leé tu neumático" (interactivo), empleo, novedades, contacto, footer |
-| Recorrido en video | Sección fija (sticky) donde el scroll avanza el video y al final da paso a la siguiente sección, estilo Apple. Video: `public/media/recorrido.mp4` (5 s, keyframes cada 6 frames para que el seek sea fluido) |
+| Recorrido en video | Sección fija (sticky) donde el scroll avanza el video y al final da paso a la siguiente sección, estilo Apple. Video: `public/media/recorrido-scrub.mp4` y `recorrido-scrub-movil.mp4` (5 s, 24 fps, todos los cuadros son keyframes: `ffmpeg -g 1`, si no el seek salta). Lógica en `src/components/plant-tour.tsx`, adaptada de "Magic Hour" (21st.dev) |
 | SEO | Metadata y Open Graph en `src/app/layout.tsx`, JSON-LD `Organization`, `sitemap.ts`, `robots.ts`, imagen OG 1200×630 |
 | Analítica | GA4 vía Google Tag Manager con Consent Mode v2, cargado solo tras aceptar cookies (Ley 7593/2025 de datos personales de Paraguay). Fase 3 |
 | Accesibilidad | WCAG 2.2 AA: contraste ≥ 4,5:1, foco visible, targets ≥ 44 px, `prefers-reduced-motion` (sin video ni scroll animado), skip link, landmarks, `alt` descriptivos |
@@ -46,8 +46,8 @@ Web institucional de **Cauchos del Paraguay S.A. (CDP)**, una fábrica de **neum
 Documento: "Web CDP: plan por fases" (https://claude.ai/artifact/G1jsKhZaEAmSPPYHihk5FT).
 
 0. Base técnica ← hecho (falta conectar Vercel)
-1. Maqueta de secciones (sin animación, textos en `src/data/`) ← en revisión (PR `fase-1-maqueta`)
-2. Interacción y animación (21st.dev, recorrido en video, Leé tu neumático)
+1. Maqueta de secciones (sin animación, textos en `src/data/`) ← en revisión (PR #1)
+2. Interacción y animación (21st.dev, recorrido en video, Leé tu neumático) ← en curso (rama `fase-2-animacion`)
 3. Formularios y medición (contacto, WhatsApp, cookies, GA4)
 4. Calidad (WCAG, Lighthouse ≥ 90 en móvil, SEO técnico)
 5. Contenido real y lanzamiento

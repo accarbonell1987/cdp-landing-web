@@ -1,3 +1,4 @@
+import { Reveal } from "@/components/reveal";
 import { news } from "@/data/company";
 
 export function News() {
@@ -14,8 +15,8 @@ export function News() {
           </a>
         </div>
         <ul className="grid gap-4 md:grid-cols-3">
-          {news.map((item) => (
-            <li key={item.title} className="flex flex-col gap-2 rounded-2xl bg-white p-6">
+          {news.map((item, i) => (
+            <Reveal as="li" key={item.title} delay={i * 90} className="flex flex-col gap-2 rounded-2xl bg-white p-6">
               <span className="text-[15px] text-muted-foreground">{item.date}</span>
               <h3 className="text-[21px] font-bold">
                 <a href="#novedades" className="text-ink hover:text-navy">
@@ -23,7 +24,7 @@ export function News() {
                 </a>
               </h3>
               <p className="text-[17px] text-ink-soft">{item.summary}</p>
-            </li>
+            </Reveal>
           ))}
         </ul>
       </div>

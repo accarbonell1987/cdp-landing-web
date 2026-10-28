@@ -1,13 +1,14 @@
 import Image from "next/image";
 import salaEspera from "@/assets/media/render-sala-espera.jpg";
 import { Button } from "@/components/ui/button";
+import { Reveal } from "@/components/reveal";
 import { jobs } from "@/data/company";
 
 export function Careers() {
   return (
     <section id="empleo" aria-labelledby="empleo-title" className="pb-24">
       <div className="wrap">
-        <div className="grid overflow-hidden rounded-3xl bg-white lg:grid-cols-2">
+        <Reveal className="grid overflow-hidden rounded-3xl bg-white lg:grid-cols-2">
           <div className="flex flex-col items-start gap-5 p-[clamp(28px,4vw,56px)]">
             <p className="kicker">Empleo</p>
             <h2 id="empleo-title" className="display text-[clamp(34px,3.8vw,56px)]">
@@ -38,7 +39,7 @@ export function Careers() {
               Visualización del proyecto
             </figcaption>
           </figure>
-        </div>
+        </Reveal>
       </div>
     </section>
   );
