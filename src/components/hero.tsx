@@ -1,5 +1,6 @@
 import Image from "next/image";
 import fachada from "@/assets/media/render-fachada-dia.jpg";
+import { HeroVideo } from "@/components/hero-video";
 import { Button } from "@/components/ui/button";
 
 export function Hero() {
@@ -18,6 +19,7 @@ export function Hero() {
             className="object-cover object-[50%_45%]"
           />
         </div>
+        <HeroVideo src="/media/hero.mp4" className="absolute inset-0 -z-20 size-full" />
         <div aria-hidden="true" className="cdp-hero-shade absolute inset-0 -z-10" />
       </div>
       <div className="wrap">
